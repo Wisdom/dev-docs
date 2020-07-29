@@ -1,0 +1,134 @@
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.docTitle {
+  font-size: 3rem;
+  margin-bottom: calc(var(--ifm-leading-desktop) * var(--ifm-leading));
+}
+
+.docItemContainer {
+  margin: 0 auto;
+  padding: 0 0.5rem;
+}
+
+@media only screen and (min-width: 997px) {
+  .docItemCol {
+    max-width: 75% !important;
+  }
+}
+
+@media (min-width: 997px) and (max-width: 1320px) {
+  .docItemWrapper {
+    max-width: calc(
+      var(--ifm-container-width) - 300px - var(--ifm-spacing-horizontal) * 2
+    );
+  }
+}
+
+.tableOfContents {
+  display: inherit;
+  max-height: calc(100vh - (var(--ifm-navbar-height) + 2rem));
+  overflow-y: auto;
+  position: sticky;
+  top: calc(var(--ifm-navbar-height) + 2rem);
+}
+
+.tableOfContents::-webkit-scrollbar {
+  width: 7px;
+}
+
+.tableOfContents::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.tableOfContents::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+}
+
+.tableOfContents::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+@media only screen and (max-width: 996px) {
+  .tableOfContents {
+    display: none;
+  }
+
+  .docItemContainer {
+    padding: 0 0.3rem;
+  }
+}
+
+.docLastUpdatedAt {
+  font-weight: bold;
+}
+
+
+/* ----------------------------------------- */
+/* -------  OVERRIDES BELOW ---------------- */
+/* ----------------------------------------- */
+
+.docTitle {
+  font-size: 2.00em;
+  font-weight: 700;
+  border-bottom: 1px solid hsla(0, 0%, 95%, 1);
+  padding-bottom: 0.2em;
+  margin-bottom: 1em;
+  margin-top: -0.75em;
+  line-height: 1.2;
+  /* padding-right: 15%; */
+}
+
+.docItemContainer {
+  margin: 0 auto;
+  padding: 0 0.5rem;
+}
+
+.docItemWrapper {
+  padding: 0;
+}
+
+@media (min-width: 997px) and (max-width: 1320px) {
+  .docItemWrapper {
+    max-width: calc(
+      var(--ifm-container-width) - 340px - var(--ifm-spacing-horizontal) * 2
+    );
+  }
+}
+
+@media only screen and (max-width: 996px) {
+  .docItemContainer {
+    padding: 0 0rem;
+  }
+}
+
+.tableOfContents::before {
+  content: 'On This Page:';
+  font-weight: 500;
+  padding-top: 3em;
+}
+div.tableOfContents {
+  top: calc(var(--ifm-navbar-height) + 5rem);
+}
+
+.div.docItemContainer {
+  padding: 0;
+}
+
+.docItemWrapper div.docItemCol{
+  background: #fff;
+  /* border: 1px solid #f0f0f0; */
+  border-top: none;
+  border-bottom: none;
+  padding: 5rem 6rem 8rem;
+}
+html[data-theme='dark'] .main-wrapper .docItemCol{
+  background: hsla(0, 0%, 3%, 1);
+  /* border: 1px solid #101010; */
+}

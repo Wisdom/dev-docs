@@ -1,0 +1,15 @@
+{
+  "name": "generators",
+  "version": "1.0.0",
+  "description": "",
+  "main": "sql-reports.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "markdown-it": "^11.0.0",
+    "papaparse": "^5.2.0"
+  }
+}

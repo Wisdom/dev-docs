@@ -1,0 +1,71 @@
+/**
+ * Copyright (c) Facebook, Inc. and its affiliates.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+.docPage {
+  display: flex;
+}
+
+.docSidebarContainer {
+  border-right: 1px solid var(--ifm-toc-border-color);
+  box-sizing: border-box;
+  width: 300px;
+  position: relative;
+  margin-top: calc(-1 * var(--ifm-navbar-height));
+}
+
+.docMainContainer {
+  flex-grow: 1;
+}
+
+@media (max-width: 996px) {
+  .docPage {
+    display: inherit;
+  }
+
+  .docSidebarContainer {
+    margin-top: 0;
+  }
+}
+
+
+/* ----------------------------------------- */
+/* -------  OVERRIDES BELOW ---------------- */
+/* ----------------------------------------- */
+
+
+
+.docSidebarContainer {
+  font-size: 0.9em;
+  width: 340px;
+  background: #f7fafc;
+  flex-shrink: 0;
+  flex-grow: 0;
+}
+html[data-theme='dark'] div.docSidebarContainer {
+  background: #0a0a0a;
+}
+
+a.sidebarLogo {
+  padding: 4em 1em 2em;
+  pointer-events: none;
+}
+.docMainContainer {
+  min-height: 100vh;
+}
+
+
+.docSidebarContainer{ border-right: none; }
+
+
+.tableOfContents::before {
+  content: 'On This Page:';
+  font-weight: 500;
+  padding-top: 3em;
+}
+div.tableOfContents {
+  top: calc(var(--ifm-navbar-height) + 5rem);
+}

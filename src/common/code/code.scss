@@ -1,0 +1,175 @@
+
+.code {
+    background: hsla(200, 18%, 27%, 1);
+    // border-radius: 0.25em;
+    border-radius: 0;
+    box-sizing: border-box;
+    font-size: 0.7em;
+    // margin-left: -7.5em;
+    // margin-right: -7.5em;
+    margin-left: -4em;
+    margin-right: -4em;
+    margin-bottom: 8em;
+
+    // margin-top: 3em;
+    // margin-bottom: 6em;
+    // margin-left: -6em;
+    // margin-right: -6em;
+
+    .titleGroup {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        justify-content: space-between;
+        box-sizing: border-box;
+        align-items: center;
+        color: white;
+        background: #58727e;
+        user-select: none;
+        padding: 0.75em 1.25em;
+        font-size: 1.25em;
+        line-height: 0;
+
+        .title {}
+
+        .expander {}
+
+        .copyBtn {
+            background: #fff;
+            border: none;
+            line-height: 1;
+            padding: .5em 1em;
+            border-radius: 2px;
+            box-shadow: 0 1px 3px -1px hsla(199, 17%, 22%, 1);
+            color: hsla(199, 17%, 22%, 1);
+        }
+    }
+
+    .coding {
+        padding: 1em 0.75em;
+        overflow: auto;
+
+        &::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+            opacity: 0;
+          }
+          &:hover::-webkit-scrollbar-thumb {
+            background: #666;
+          }
+          &::-webkit-scrollbar-thumb {
+            background: transparent;
+            border-radius: 6px;
+            transition: background 600ms ease 0s;
+          }
+          &::-webkit-scrollbar-thumb:hover {
+            background: #777;
+            border-radius: 6px;
+          }
+          &::-webkit-scrollbar-track {
+            background: transparent;
+            border-radius: 6px;
+          }
+    }
+}
+
+
+
+.coding.coding.coding pre {
+    background: none;
+    // background: linear-gradient(
+    //     180deg,
+    //     #fff,
+    //     #fff .75em,
+    //     #f5f7fa 0,
+    //     #f5f7fa 2.75em,
+    //     #fff 0,
+    //     #fff 4em
+    // );
+    // background: linear-gradient(
+    //     180deg,
+    //     hsla(200, 18%, 27%, 1),
+    //     hsla(200, 18%, 27%, 1) .75em,
+    //     #f5f7fa 0,
+    //     #f5f7fa 2.75em,
+    //     hsla(200, 18%, 27%, 1) 0,
+    //     hsla(200, 18%, 27%, 1) 4em
+    // );
+    background-size: 100% 4.5em;
+    // border: 1px solid #d3daea;
+    overflow: visible;
+    border: none;
+    border-radius: 0;
+    font-family: monospace;
+    font-size: 1.3em;
+    line-height: 1.5;
+    padding-top: 0.6em;
+    margin-bottom: 0;
+    white-space: pre-wrap;
+}
+
+
+.code {
+    :global {
+        pre[class*="language-"].line-numbers {
+            position: relative;
+            padding-left: 3.8em;
+            counter-reset: linenumber;
+        }
+    
+        pre[class*="language-"].line-numbers > code {
+            position: relative;
+            white-space: inherit;
+        }
+    
+        .line-numbers .line-numbers-rows {
+            position: absolute;
+            pointer-events: none;
+            top: 0;
+            font-size: 100%;
+            left: -3.8em;
+            width: 3em; /* works for line-numbers below 1000 lines */
+            letter-spacing: -1px;
+            border-right: 1px solid #999;
+    
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+    
+        }
+    
+        .line-numbers-rows > span {
+            pointer-events: none;
+            display: block;
+            counter-increment: linenumber;
+        }
+    
+        .line-numbers-rows > span:before {
+            content: counter(linenumber);
+            color: #999;
+            display: block;
+            padding-right: 0.8em;
+            text-align: right;
+        }
+    }
+}
+
+
+
+
+
+html[data-theme='dark'] {
+    .code.code {
+        background: hsla(200, 18%, 7%, 1);
+
+        .titleGroup {
+            background: hsla(200, 17%, 10%, 1);
+
+            .copyBtn {
+                background: #f2f2f2;
+            }
+        }
+    }
+}
+

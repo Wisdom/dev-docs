@@ -1,0 +1,563 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "title": "Main API server",
+      "version": "1.0",
+      "contact": {
+        "name": "John Gracey",
+        "email": "developers@getwisdom.io",
+        "url": "developers@getwisdom.io"
+      },
+      "termsOfService": "https://getwisdom.io/legal/terms-of-service",
+      "description": "Wisdom's read-primary, customer facing API.",
+      "license": {
+        "name": "MIT (docs)"
+      }
+    },
+    "servers": [
+      {
+        "url": "https://api.getwisdom.io/v1",
+        "description": "API"
+      }
+    ],
+    "paths": {
+      "org/{orgId}/project/{projectId}/export/person": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "description": "Org ID"
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "description": "Project ID"
+          }
+        ],
+        "get": {
+          "summary": "exportPersonRecords",
+          "tags": [],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "projectId": {
+                          "type": "integer"
+                        },
+                        "identityId": {
+                          "type": "string"
+                        },
+                        "email": {
+                          "type": "string",
+                          "format": "email"
+                        },
+                        "firstName": {
+                          "type": "string"
+                        },
+                        "lastName": {
+                          "type": "string"
+                        },
+                        "userName": {
+                          "type": "string"
+                        },
+                        "phone": {
+                          "type": "string"
+                        },
+                        "tags": {
+                          "type": "string"
+                        },
+                        "softDeletedAt": {
+                          "type": "string",
+                          "format": "date-time"
+                        },
+                        "traits": {
+                          "type": "object"
+                        }
+                      }
+                    }
+                  },
+                  "examples": {
+                    "example-1": {}
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "export-person-records",
+          "parameters": [
+            {
+              "schema": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "in": "query",
+              "name": "from",
+              "description": "ISO 8601 date object",
+              "required": true
+            },
+            {
+              "schema": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "in": "query",
+              "name": "to",
+              "description": "ISO 8601 date object",
+              "required": true
+            }
+          ]
+        }
+      },
+      "org/{orgId}/project/{projectId}/export/session": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "description": "Org ID"
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "description": "Project ID"
+          }
+        ],
+        "get": {
+          "summary": "exportSessionRecords",
+          "tags": [],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "object"
+                    }
+                  },
+                  "examples": {
+                    "example-1": {}
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "export-session-records",
+          "parameters": [
+            {
+              "schema": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "in": "query",
+              "name": "from",
+              "description": "ISO 8601 date object",
+              "required": true
+            },
+            {
+              "schema": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "in": "query",
+              "name": "to",
+              "description": "ISO 8601 date object",
+              "required": true
+            }
+          ]
+        }
+      },
+      "org/{orgId}/project/{projectId}/export/event": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "description": "Org ID"
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "description": "Project ID"
+          }
+        ],
+        "get": {
+          "summary": "exportEventRecords",
+          "tags": [],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "projectId": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  },
+                  "examples": {
+                    "example-1": {}
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "export-event-records",
+          "parameters": [
+            {
+              "schema": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "in": "query",
+              "name": "from",
+              "description": "ISO 8601 date object",
+              "required": true
+            },
+            {
+              "schema": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "in": "query",
+              "name": "to",
+              "description": "ISO 8601 date object",
+              "required": true
+            }
+          ]
+        }
+      },
+      "org/{orgId}/project/{projectId}/export/company": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "description": "Org ID"
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "description": "Project ID"
+          }
+        ],
+        "get": {
+          "summary": "exportCompanyRecords",
+          "tags": [],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "projectId": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  },
+                  "examples": {
+                    "example-1": {}
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "export-company-records",
+          "parameters": [
+            {
+              "schema": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "in": "query",
+              "name": "from",
+              "description": "ISO 8601 date object",
+              "required": true
+            },
+            {
+              "schema": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "in": "query",
+              "name": "to",
+              "description": "ISO 8601 date object",
+              "required": true
+            }
+          ]
+        }
+      },
+      "org/{orgId}/project/{projectId}/export/employee": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "orgId",
+            "in": "path",
+            "required": true,
+            "description": "Org ID"
+          },
+          {
+            "schema": {
+              "type": "integer"
+            },
+            "name": "projectId",
+            "in": "path",
+            "required": true,
+            "description": "Project ID"
+          }
+        ],
+        "get": {
+          "summary": "exportEmployeeRecords",
+          "tags": [],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "projectId": {
+                          "type": "integer"
+                        }
+                      }
+                    }
+                  },
+                  "examples": {
+                    "example-1": {}
+                  }
+                }
+              }
+            }
+          },
+          "operationId": "export-employee-records",
+          "parameters": [
+            {
+              "schema": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "in": "query",
+              "name": "from",
+              "description": "ISO 8601 date object",
+              "required": true
+            },
+            {
+              "schema": {
+                "type": "string",
+                "format": "date-time"
+              },
+              "in": "query",
+              "name": "to",
+              "description": "ISO 8601 date object",
+              "required": true
+            }
+          ]
+        }
+      },
+      "/org/{orgId}/project/{projectId}/data-subject/person/{identityId}": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "orgId",
+            "in": "path",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "projectId",
+            "in": "path",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "identityId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "get": {
+          "summary": "getRecord",
+          "tags": [],
+          "responses": {},
+          "operationId": "get-org-orgId-project-projectId-data-subject-person-identityId",
+          "description": "Remove's a person's descriptive information, including name and email address."
+        },
+        "delete": {
+          "summary": "softDeleteRecord",
+          "tags": [],
+          "responses": {},
+          "operationId": "delete-org-orgId-project-projectId-data-subject-person-identityId"
+        }
+      },
+      "/org/{orgId}/project/{projectId}/data-subject/session/{sessionId}": {
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "orgId",
+            "in": "path",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "projectId",
+            "in": "path",
+            "required": true
+          },
+          {
+            "schema": {
+              "type": "string"
+            },
+            "name": "sessionId",
+            "in": "path",
+            "required": true
+          }
+        ],
+        "get": {
+          "summary": "getRecord",
+          "tags": [],
+          "responses": {},
+          "operationId": "get-org-orgId-project-projectId-data-subject-session-sessionId",
+          "description": "Removing a session record also removes an event record."
+        },
+        "delete": {
+          "summary": "softDeleteRecord",
+          "tags": [],
+          "responses": {},
+          "operationId": "delete-org-orgId-project-projectId-data-subject-session-sessionId"
+        }
+      }
+    },
+    "components": {
+      "schemas": {
+        "Auth": {
+          "title": "Auth",
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          }
+        },
+        "Rendering": {
+          "title": "Rendering",
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          }
+        },
+        "Data-Export": {
+          "title": "Export",
+          "description": "REST API to export SQL data. Note paying users have direct SQL access.",
+          "oneOf": [
+            {
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "": {
+                  "type": "string"
+                }
+              }
+            }
+          ],
+          "type": "object"
+        },
+        "Data-Subject": {
+          "title": "Data-Subject",
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          }
+        },
+        "Report": {
+          "title": "Report",
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            }
+          },
+          "description": ""
+        }
+      },
+      "securitySchemes": {
+        "apiSecretToken": {
+          "name": "Project's level API key",
+          "type": "apiKey",
+          "in": "header",
+          "description": ""
+        }
+      }
+    },
+    "security": [
+      {
+        "accessToken": []
+      }
+    ]
+  }
+  
