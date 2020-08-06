@@ -14,7 +14,8 @@
     "build:storybook": "build-storybook -c ./storybook/.storybook -o ./static/storybook-build/",
     "build:sql-tables": "node ./generators/sql-tables.js",
     "build:sql-reports": "curl -qs https://community-sql.s3-us-west-2.amazonaws.com/composed-queries.csv | node ./generators/sql-reports.js",
-    "build:all": "npm run build:sql-tables && npm run build:sql-reports && npm run build:storybook && npm run build:docusaurus"
+    "build:all": "npm run build:sql-tables && npm run build:sql-reports && npm run build:storybook && npm run build:docusaurus",
+    "build:netlify": "npm run build:storybook && npm run build:docusaurus"
   },
   "dependencies": {
     "@docusaurus/core": "^2.0.0-alpha.60",
