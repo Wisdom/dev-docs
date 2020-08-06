@@ -36,17 +36,19 @@ function DocPage(props) {
       }) || {}
     : {};
 
-  const sidebar = isHomePage
+  const sidebar = (isHomePage
     ? content.metadata.sidebar
-    : permalinkToSidebar[currentRoute.path];
+    : permalinkToSidebar[currentRoute.path]) || 'docs';
+
   const {
     siteConfig: {themeConfig: {sidebarCollapsible = true} = {}} = {},
     isClient,
   } = useDocusaurusContext();
 
-  if (!isHomePage && Object.keys(currentRoute).length === 0) {
-    return <NotFound {...props} />;
-  }
+  const do404 = (!isHomePage && Object.keys(currentRoute).length === 0);
+  // if (!isHomePage && Object.keys(currentRoute).length === 0) {
+  //   return <NotFound {...props} />;
+  // }
 
   return (
     <Layout version={version} key={isClient}>
@@ -63,11 +65,15 @@ function DocPage(props) {
         )}
         <main className={styles.docMainContainer}>
           <MDXProvider components={MDXComponents}>
-            {isHomePage ? (
-              <DocItem content={content} />
-            ) : (
-              renderRoutes(baseRoute.routes)
+            {!!do404 && (
+              <NotFound {...props} />
             )}
+            {!do404 && isHomePage ? (
+                <DocItem content={content} />
+              ) : (
+                renderRoutes(baseRoute.routes)
+              )
+            }            
           </MDXProvider>
         </main>
       </div>
