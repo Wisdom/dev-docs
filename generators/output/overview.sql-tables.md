@@ -139,7 +139,6 @@ Note: Requires setup of vendor secret API keys (auth tokens).
 
 On record insert into table `person`, a trigger will broadcast a notification identified as `project_${projectId}`.
 
-`community.report();`           -- NOTE: See [Community Reports](#) for how to use community report functions.
 `community.update_reports();`   -- NOTE: See [Community Reports](#) for how to use community report functions.
 
 

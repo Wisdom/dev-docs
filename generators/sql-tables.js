@@ -33,7 +33,7 @@ const generateTable = (sizedHeaders, rows) => {
 const schemas = execSync(`PGPASSFILE=../.pgpass psql -h pg.getwisdom.io -d internal_prod -U master -p 5432 -c "COPY (select schema_name from information_schema.schemata WHERE schema_name <> ALL(array['internal', 'internal_audit', 'aws_s3', 'aws_commons', 'public', 'information_schema']) AND schema_name NOT LIKE 'pg_%') TO STDOUT with CSV"`).toString().split('\n').filter((str) => str&&!(str || '').match(/[^a-zA-Z0-9_]/g));
 console.log('\n\n', schemas);
 
-const tables = execSync(`PGPASSFILE=../.pgpass psql -h pg.getwisdom.io -d internal_prod -U master -p 5432 -c "COPY (SELECT table_schema || '.' || table_name FROM information_schema.tables WHERE table_schema <> ALL(array['community_types', 'internal', 'internal_audit', 'aws_s3', 'aws_commons', 'public', 'information_schema']) AND table_schema NOT LIKE 'pg_%' ORDER BY table_schema ASC, table_name ASC) TO STDOUT with CSV"`).toString().split('\n').filter(str => str&&!str.match(/[^a-zA-Z0-9._]/g));
+const tables = execSync(`PGPASSFILE=../.pgpass psql -h pg.getwisdom.io -d internal_prod -U master -p 5432 -c "COPY (SELECT table_schema || '.' || table_name FROM information_schema.tables WHERE table_schema <> ALL(array['community_types', 'internal', 'internal_audit', 'aws_s3', 'aws_commons', 'public', 'information_schema']) AND table_schema NOT LIKE 'pg_%' ORDER BY table_schema ASC, table_name ASC) TO STDOUT with CSV"`).toString().split('\n').filter(str => str&&!str.match(/[^a-zA-Z0-9._]/g)).filter(table=>!/^(alpha|beta|community)\./.test(table))
 
 console.log('\n\n', tables);
 

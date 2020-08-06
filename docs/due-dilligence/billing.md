@@ -21,11 +21,11 @@ Wisdom exposes data management configurations- you can define how long to store 
 | PostgreSQL Database       | RDS PostgreSQL | "Cost Plus" (+25%) | Starting at $15 per month depending on RAM + GiB configured, and $0.127 per GB of SQL storage. |
 _Note 1: Wisdom's primary data region is Ireland (AWS region eu-west-1)._
 
-_Note 2: Bandwidth Fees - Data Transfer Out of Amazon S3 + RDS to a destination outside of AWS is $0.05 per GiB, or $0.02 per GiB to AWS regions. These fees are not usually materially noticeable, but could matter for data migration or replication tasks. For example, migrating out all your data outside of AWS could cost around $90 if you have 1TiB of data, or $20 within AWS.
+_Note 2: Bandwidth Fees - Data Transfer Out of Amazon S3 + RDS to a destination outside of AWS is $0.05 per GiB, or $0.02 per GiB to AWS regions. These fees are not usually materially noticeable, but could matter for data migration or replication tasks. For example, migrating out all your data outside of AWS could cost around $90 if you have 1TiB of data, or $20 within AWS._
 
 
 ## Estimating Cost
-For planning purposes, it can be hard to get a ballpark cost estimate for many enterprise services. In general, Wisdom's rough median pricing (skewed to smaller SaaS companies) is around $125 per month. For the median user, recording/s3 storage costs are around $10 per month, PostgreSQL database at $15 per month, and data ingestion page views accounting for around $100 per month. By default, recorded sessions are saved for 3 months. You may extend data retention indefinately. For 12 months, you can expect to pay 4x more in S3 costs (from $10 to now $40 per month). Average session recording sizes are approximately 200 KB, but may be smaller if certain tracking/recording modules are disabled.
+For planning purposes, it can be hard to get a ballpark cost estimate for many enterprise services. In general, Wisdom's rough median pricing (skewed to smaller SaaS companies) is around $125 per month. For the median user, recording/s3 storage costs are around $10 per month, PostgreSQL database at $15 per month, and data ingestion page views accounting for around $100 per month. By default, recorded sessions are saved for 3 months. You may extend data retention indefinately. For example, with 12 months of data retention you can expect to pay 4x more in S3 costs (previously $10/month, now $40/month). Average session recording sizes are approximately 80 KB each- but vary by with each web app and certain configurations such as enabling/disabling tracking/recording modules.
 
 
 
@@ -33,7 +33,7 @@ For planning purposes, it can be hard to get a ballpark cost estimate for many e
 - Single Availability Zone
 
 
-By Default, new accounts are assigned `db.t3.micro` PostgreSQL instances provisioned in a single availability zone for a monthly price of around $18 per month (~$3.50 for SQL storage) providing 1 GiB of RAM and 2 virtual CPUs. You may upgrade these database instances following the table below- just reach out to a member of the Wisdom team. Not the table below provides the AWS cost. For Wisdom's billing, add an additional 25% to cover Wisdom's "cost plus" cut.
+By Default, new accounts are assigned `db.t3.micro` PostgreSQL instances provisioned in a single availability zone for a monthly price of around $18 per month (~$3.50 for SQL storage) providing 1 GiB of RAM and 2 virtual CPUs. You may upgrade these database instances following the table below- just reach out to a member of the Wisdom team. Note the table below provides the AWS cost. For Wisdom's billing, add an additional 25% to cover Wisdom's "cost plus" cut.
 
 
 | EC2 Instance Type | Monthly Price | RAM | CPU Count |
@@ -57,7 +57,10 @@ By Default, new accounts are assigned `db.t3.micro` PostgreSQL instances provisi
 | db.r5.4xlarge  | $1,612.80 | 128 GiB |  16 vCPU |
 
 
+---
+
 ## Technical Definitions
+
 
 ### Page View
 Wisdom charges for each page view recorded. A page view is defined by either triggering a Javascript "page change" event (sometimes called a virtual page view), or by the initialization of the Wisdom tracking script- for example when loading a web page for the first time.

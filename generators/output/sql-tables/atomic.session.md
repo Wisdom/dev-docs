@@ -76,6 +76,7 @@ Column          |           Type           | Nullable | Default | Storage  |    
 `"wisdomVersion"`           | character varying(20)    |          |         | extended | 
 `"pageCreatedAt"`           | timestamp with time zone |          |         | plain    | 
 `"softDeletedAt"`           | timestamp with time zone |          |         | plain    | 
+s3Bytes                 | integer                  |          |         | plain    | 
 ### Indexes:
 ```
 "Session_pkey" PRIMARY KEY, btree ("projectId", "sessionStart", "sessionId")

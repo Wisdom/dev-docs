@@ -7,8 +7,8 @@ sidebar_label: '@wisdom/developing/passing-parameters'
 ## Example Usage
 
 ```sql
-SELECT * FROM community.report(NULL::"@wisdom/developing/passing-parameters", 
-	_project_id = ?
+SELECT * FROM community.report(NULL::community_types."@wisdom/developing/passing-parameters", 
+	_project_id => ?
 );
 ```
 

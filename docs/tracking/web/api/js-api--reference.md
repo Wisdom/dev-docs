@@ -1,5 +1,6 @@
 ---
-title: JavaScript API
+title: JavaScript API Reference
+sidebar_label: JS API Reference
 preview: ''
 
 createdAt: 2018-07-5 9:02:52
@@ -15,9 +16,9 @@ tags:
 author: 'John Gracey'
 public: True
 ---
-import Code from '../../../src/common/code/'
+import Code from '../../../../src/common/code/'
 
-Wisdom's client side JavaScript API contains a mix of syncronous and asyncronous methods and properties. Wisdom follows industry convension by use of an asyncronous task queue snippet that asyncronously loads the bulk of Wisdom's JavaScript code. This allows certain methods to be invoked immediately, and they will be run as soon as Wisdom finishes loading. The most common async example is `wisdom('init', __PROJECT_ID__, opts)`.
+Wisdom's client side JavaScript API contains a mix of synchronous and asynchronous methods and properties. Wisdom follows industry convension by use of an asynchronous task queue snippet that asynchronously loads the bulk of Wisdom's JavaScript code. This allows certain methods to be invoked immediately, and they will be run as soon as Wisdom finishes loading. The most common async example is `wisdom('init', __PROJECT_ID__, opts)`.
 
 
 
@@ -158,7 +159,7 @@ Trait Name | Type | Description
 
 
 
-### Complete Initialization Configuration Reference
+### Complete Configuration Reference
 
 In addition to the lengthly JavaScript snippet below, you can view the configurations for a particular project, in your geographic area by pluggin in your projectId to the following URL:  
 [https://producer.getwisdom.io/project/____:projectId____/config](https://producer.getwisdom.io/project/__PROJECT_ID_HERE___/config)

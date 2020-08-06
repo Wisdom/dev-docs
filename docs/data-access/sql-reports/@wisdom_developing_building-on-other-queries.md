@@ -7,7 +7,7 @@ sidebar_label: '@wisdom/developing/building-on-other-queries'
 ## Example Usage
 
 ```sql
-SELECT * FROM community.report(NULL::"@wisdom/developing/building-on-other-queries");
+SELECT * FROM community.report(NULL::community_types."@wisdom/developing/building-on-other-queries");
 ```
 
 

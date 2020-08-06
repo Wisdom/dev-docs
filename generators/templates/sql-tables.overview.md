@@ -46,7 +46,13 @@ Wisdom by default does NOT provide you with usernames and passwords coorespondin
 
 
 ## Terminal / Command Line Connections
-`psql  \n\t \\ -h ${ORG_ID}.sql.wisdom-dashboards.com \n\t \\ -d ${DATABASE}  \n\t \\ -U ${USER_NAME}  \n\t \\ -p 5432`
+```
+psql \
+   -h ${ORG_ID}.sql.wisdom-dashboards.com
+   -d ${DATABASE} \
+   -U ${USER_NAME} \
+   -p 5432
+```
 
 # Context
 

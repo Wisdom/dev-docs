@@ -3,7 +3,7 @@
 
 ### JavaScript API
 
-Wisdom's client side JavaScript API contains a mix of syncronous and asyncronous methods and properties. Wisdom follows industry convension by use of an asyncronous task queue snippet that asyncronously loads the bulk of Wisdom's JavaScript code. This allows certain methods to be invoked immediately, and they will be run as soon as Wisdom finishes loading. The most common async example is `wisdom('init', ...)`.
+Wisdom's client side JavaScript API contains a mix of synchronous and asynchronous methods and properties. Wisdom follows industry convension by use of an asynchronous task queue snippet that asynchronously loads the bulk of Wisdom's JavaScript code. This allows certain methods to be invoked immediately, and they will be run as soon as Wisdom finishes loading. The most common async example is `wisdom('init', ...)`.
 
 > wisdom.help
 

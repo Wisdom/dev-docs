@@ -81,7 +81,7 @@ reports.forEach(({queryPath, manifest, sql, readme}) => {
         ]),
     );
 
-    const exampleArgs = manifest.requiredParams.length ? ', \n' + manifest.requiredParams.map(x=>`\t${x} = ?`).join(', \n') + '\n' : '';
+    const exampleArgs = manifest.requiredParams.length ? ', \n' + manifest.requiredParams.map(x=>`\t${x} => ?`).join(', \n') + '\n' : '';
 
     let generatedReadme = /*markdownIt.render*/(
 `---
@@ -93,7 +93,7 @@ sidebar_label: '${queryPath}'
 ## Example Usage
 
 \`\`\`sql
-SELECT * FROM community.report(NULL::"${queryPath}"${exampleArgs});
+SELECT * FROM community.report(NULL::community_types."${queryPath}"${exampleArgs});
 \`\`\`
 
 
@@ -138,8 +138,8 @@ const overviewToC = generateTable(
         ['Title', 25],
         ['Requires Params', 15]
     ],
-    reports.slice().map(entry => [
-        `[${entry.queryPath}](./${entry.queryPath})`,
+    reports.slice().filter(x=>!(x.queryPath.startsWith('@wisdom/developing/'))).map(entry => [
+        `[${entry.queryPath}](./${entry.queryPath.replace(/\//g, '_')})`,
         alphanumericFilter(entry.manifest.title),
         !!entry.manifest.requiredParams.length ? '✓' : '✘',
     ]),
@@ -151,7 +151,7 @@ const overviewDevToC = generateTable(
         ['Title', 25],
         ['Requires Params', 15]
     ],
-    reports.slice().filter(x=>x.queryPath.startsWith('@wisdom/developing/')).map((entry, i) => [
+    reports.slice().filter(x=>(x.queryPath.startsWith('@wisdom/developing/'))).map((entry, i) => [
         i+1,
         `[${entry.queryPath}](https://github.com/Wisdom/community-sql/blob/master/queries/${entry.queryPath})`,
         alphanumericFilter(entry.manifest.title),

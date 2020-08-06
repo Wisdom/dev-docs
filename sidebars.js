@@ -42,7 +42,7 @@ module.exports = {
       },
     ],
 
-    'Accessing Your Data': [
+    'Accessing Your Data:new': [
       'data-access/overview',
       'data-access/management',
       'data-access/blob',
@@ -52,25 +52,6 @@ module.exports = {
         items: [
           'data-access/sql-tables/overview',
           ...sqlTables.map(x=>'data-access/sql-tables/'+x),
-          // 'data-access/sql-reports/@wisdom_developing_all-together',
-          // 'data-access/sql/atomic.company',
-          // 'data-access/sql/atomic.employee',
-          // 'data-access/sql/atomic.event',
-          // 'data-access/sql/atomic.mail_inbox',
-          // 'data-access/sql/atomic.person',
-          // 'data-access/sql/atomic.session',
-          // 'data-access/sql/enrichment.domain_rank',
-          // 'data-access/sql/enrichment.person_enrichment',
-          // 'data-access/sql/enrichment.spam_email_service',
-          // 'data-access/sql/rollup.rollup_daily_project_metrics',
-          // 'data-access/sql/rollup.rollup_weekly_project_metrics',
-          // 'data-access/sql/rollup.rollup_weekly_user_page_activity',
-          // 'data-access/sql/team.gallery_session_view',
-          // 'data-access/sql/team.person_note',
-          // 'data-access/sql/team.social_share',
-          // 'data-access/sql/team.social_share_comment',
-          // 'data-access/sql/team.social_share_like',
-          // 'data-access/sql/team.user_sync',
         ],
       },
       {
@@ -86,40 +67,32 @@ module.exports = {
           'data-access/api/reference-spec',
         ]
       },
-      {
-        type: 'category',
-        label: 'Ecosystem Connections',
-        items: [
-          'ecosystem/overview',
-          // 'ecosystem/cube-js',
-          {
-            type: 'category',
-            label: 'SQL Clients',
-            items: [
-              // 'ecosystem/sql/clients',
-              'ecosystem/sql/psql',
-              'ecosystem/sql/pgadmin4',
-            ],
-          },
-          {
-            type: 'category',
-            label: 'BI Visualization',
-            items: [
-              'ecosystem/bi/superset',
-              'ecosystem/bi/athena',
-              'ecosystem/bi/chartio',
-              'ecosystem/bi/looker',
-              'ecosystem/bi/tableau',
-            ],
-          },
-        ],
-      },
       // {
       //   type: 'category',
-      //   label: 'Developing Web Extensions',
+      //   label: 'Ecosystem Connections',
       //   items: [
-      //     'extension-developers/overview',
-      //     'extension-developers/storybook',
+      //     'ecosystem/overview',
+      //     // 'ecosystem/cube-js',
+      //     {
+      //       type: 'category',
+      //       label: 'SQL Clients',
+      //       items: [
+      //         // 'ecosystem/sql/clients',
+      //         'ecosystem/sql/psql',
+      //         'ecosystem/sql/pgadmin4',
+      //       ],
+      //     },
+      //     {
+      //       type: 'category',
+      //       label: 'BI Visualization',
+      //       items: [
+      //         'ecosystem/bi/superset',
+      //         'ecosystem/bi/athena',
+      //         'ecosystem/bi/chartio',
+      //         'ecosystem/bi/looker',
+      //         'ecosystem/bi/tableau',
+      //       ],
+      //     },
       //   ],
       // },
     ],
@@ -144,8 +117,6 @@ module.exports = {
         ],
       },
     ],
-
-    // 'Ecosystem Setup': [],
 
     // 'Team Management': [ // https://pantheon.io/docs/manage
     //   'team-management/overview',
@@ -226,6 +197,14 @@ module.exports = {
       // },
       'snippets',
       
+    ],
+
+    'FAQ': [
+      'faq/faq-articles/censoring-sensitive-information',
+      'faq/faq-articles/does-wisdom-support-complex-ajax-sites',
+      'faq/faq-articles/how-do-i-change-my-plan-what-about-going-over-quota',
+      'faq/faq-articles/using-replayed-remote-developer-tools',
+      'faq/faq-articles/using-wisdom-live-view',
     ],
 
     '__Hidden': [   /* Manual overrides since sidebar only shows up if document is listed here */

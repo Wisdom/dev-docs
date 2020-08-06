@@ -5,7 +5,7 @@ sidebar_label: Overview
 
 ### Censorship
 
-Censorship is a very important concept to understand. There are two methods to limiting what data Wisdom collects available to website owners. We recommend using HTML Configuration (the first method) as much as possible. You can also enable and disable certain Wisdom [recording modules](/js-client-api/recording-modules/README.md) like cookie tracking and mouse tracking.
+Censorship is a very important concept to understand. There are two methods to limiting what data Wisdom collects available to website owners. We recommend using HTML Configuration (the first method) as much as possible. You can also enable and disable certain Wisdom [recording modules](recording-modules) like cookie tracking and mouse tracking.
 
 <div class='spacer32'></div>
 
@@ -53,7 +53,7 @@ Password visibility toggles may cause Wisdom to treat password fields as normall
 ### 2. Tracking Configurations Page
 On the [Tracking Configuration](https://app.getwisdom.io/org/~/tracking) page you can specify CSS selectors to censor HTML elements, including input fields.
 
-Beyond censoring HTML, you can also enable and disable certain Wisdom "recording modules", such as Mouse movement tracking. Please see the list of [recording modules](js-client-api/recording-modules/README.md) for their impact on privacy.
+Beyond censoring HTML, you can also enable and disable certain Wisdom "recording modules", such as Mouse movement tracking. Please see the list of [recording modules](recording-modules) for their impact on privacy.
 
 
 

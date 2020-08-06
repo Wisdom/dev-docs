@@ -8,7 +8,7 @@
 import React, {useState, useCallback} from 'react';
 import classnames from 'classnames';
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
-import useAnnouncementBarContext from '@theme/hooks/useAnnouncementBarContext';
+// import useAnnouncementBarContext from '@theme/hooks/useAnnouncementBarContext';
 import useLockBodyScroll from '@theme/hooks/useLockBodyScroll';
 import useLogo from '@theme/hooks/useLogo';
 import useScrollPosition from '@theme/hooks/useScrollPosition';
@@ -83,10 +83,10 @@ function DocSidebarItem({
               {label}
             </a>
             <ul className="menu__list">
-              {items.map((childItem) => (
+              {items.map((childItem,i) => (
                 <DocSidebarItem
                   tabIndex={collapsed ? '-1' : '0'}
-                  key={childItem.label}
+                  key={i+'_'+childItem.label}
                   item={childItem}
                   onItemClick={onItemClick}
                   collapsible={collapsible}
@@ -101,7 +101,7 @@ function DocSidebarItem({
     case 'link':
     default:
       return (
-        <li className="menu__list-item" key={label}>
+        <li className="menu__list-item" key={label+href}>
           <Link
             className={classnames('menu__link', {
               'menu__link--active': href === activePath,
@@ -156,7 +156,7 @@ function DocSidebar(props) {
     isClient,
   } = useDocusaurusContext();
   const {logoLink, logoLinkProps, logoImageUrl, logoAlt} = useLogo();
-  const {isAnnouncementBarClosed} = useAnnouncementBarContext();
+  // const {isAnnouncementBarClosed} = useAnnouncementBarContext();
   const {scrollY} = useScrollPosition();
 
   const {
@@ -192,7 +192,7 @@ function DocSidebar(props) {
         [styles.sidebarWithHideableNavbar]: hideOnScroll,
       })}>
 
-      <div className="menu__list">
+      {/* <div className="menu__list menu--responsive">
         {hideOnScroll && (
           <Link
             tabIndex="-1"
@@ -205,17 +205,20 @@ function DocSidebar(props) {
             {title != null && <strong>{title}</strong>}
           </Link>
         )}
-      </div>
+      </div> */}
 
-      <div className="menu__list">
+      {/* <div className="menu__list">
         <SearchBar/>
-      </div>
+      </div> */}
 
       <div
-        className={classnames('menu', 'menu--responsive', styles.menu, {
+        className={classnames(
+          'menu', 
+          'menu--responsive', 
+          styles.menu, {
           'menu--show': showResponsiveSidebar,
-          [styles.menuWithAnnouncementBar]:
-            !isAnnouncementBarClosed && scrollY === 0,
+          // [styles.menuWithAnnouncementBar]:
+            // !isAnnouncementBarClosed && scrollY === 0,
         })}>
         <button
           aria-label={showResponsiveSidebar ? 'Close Menu' : 'Open Menu'}
@@ -255,9 +258,23 @@ function DocSidebar(props) {
           )}
         </button>
         <ul className="menu__list">
-          {sidebarData.map((item) => (
+
+          <Link
+            tabIndex="-1"
+            className={styles.sidebarLogo}
+            to={logoLink}
+            {...logoLinkProps}>
+            {logoImageUrl != null && (
+              <img key={isClient} src={logoImageUrl} alt={logoAlt} />
+            )}
+            {title != null && <strong>{title}</strong>}
+          </Link>
+
+          <SearchBar/>
+          
+          {sidebarData.map((item,i) => (
             <DocSidebarItem
-              key={item.label}
+              key={i+'_'+item.label}
               item={item}
               onItemClick={(e) => {
                 e.target.blur();

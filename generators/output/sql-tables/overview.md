@@ -86,19 +86,19 @@ select nspname from pg_catalog.pg_namespace;
 
 | Schemas                        |
 |--------------------------------|
-| atomic                         |
-| rollup                         |
-| team                           |
-| enrichment                     |
-| trained                        |
-| alpha                          |
-| beta                           |
-| normalized_vendor              |
-| app                            |
-| sandbox                        |
 | admin                          |
+| alpha                          |
+| app                            |
+| atomic                         |
+| beta                           |
 | community                      |
 | community_types                |
+| enrichment                     |
+| normalized_vendor              |
+| rollup                         |
+| sandbox                        |
+| team                           |
+| trained                        |
 
 
 
@@ -107,17 +107,12 @@ select nspname from pg_catalog.pg_namespace;
 
 | Tables with Schema             |
 |--------------------------------|
-| [alpha.aggregate_mouse_position](./alpha.aggregate_mouse_position.md) |
-| [alpha.aggregate_scroll_abandonment](./alpha.aggregate_scroll_abandonment.md) |
-| [alpha.aggregate_scroll_position](./alpha.aggregate_scroll_position.md) |
-| [alpha.url_category](./alpha.url_category.md) |
 | [atomic.company](./atomic.company.md) |
 | [atomic.employee](./atomic.employee.md) |
 | [atomic.event](./atomic.event.md) |
 | [atomic.mail_inbox](./atomic.mail_inbox.md) |
 | [atomic.person](./atomic.person.md) |
 | [atomic.session](./atomic.session.md) |
-| [community.queries](./community.queries.md) |
 | [enrichment.domain_rank](./enrichment.domain_rank.md) |
 | [enrichment.person_enrichment](./enrichment.person_enrichment.md) |
 | [enrichment.spam_email_service](./enrichment.spam_email_service.md) |
@@ -135,7 +130,7 @@ select nspname from pg_catalog.pg_namespace;
 
 
 ### Data Syncing SaaS Vendors
-Note: Requires setup of vendor secret API keys (auth tokens). Since this functionality is realtively speaking new, you should reach out to your assigned Wisdom account manager to discuess getting started with normalized vendor data.
+Note: Requires setup of vendor secret API keys (auth tokens). Since this functionality is relatively new, you should reach out to your assigned Wisdom account manager to discuss getting started with normalized vendor data.
 
 | Category | Vendor Name         | SQL Schema                 
 |----------|---------------------|----------------------------
@@ -164,7 +159,7 @@ Note: Requires setup of vendor secret API keys (auth tokens). Since this functio
 
 
 
-### Reserved for administrative and future use
+### Tables Reserved for Administrative and for Future Use
 
    Schema   |               Name               | Note |
 ------------|----------------------------------|------|
@@ -183,11 +178,11 @@ Note: Requires setup of vendor secret API keys (auth tokens). Since this functio
 
 #### Triggers
 
-1. On record insert into table `person`, a trigger will broadcast a notification identified as `project_${projectId}`. This will help you implement real-time data processing within your application, for example, new user signup notifications.
+On record insert into table `person`, a trigger will broadcast a notification identified as `project_${projectId}`. This will help you implement real-time data processing within your application, for example, new user signup notifications.
 
 #### Functions
 
-2. NOTE: See [Community Reports](#) for how to use and run community report functions.
+NOTE: See [Community Reports](#) for how to use and run community report functions.
    - `community.report();`
    - `community.update_reports();`
 

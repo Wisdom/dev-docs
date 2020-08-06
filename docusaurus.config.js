@@ -8,34 +8,28 @@ module.exports = {
   projectName: 'docs', // Usually your repo name.
   plugins: [
     require.resolve('docusaurus-plugin-sass'),
-    [require.resolve('@docusaurus/plugin-sitemap'), {
-      cacheTime: 600 * 1000, // 600 sec - cache purge period
-      changefreq: 'weekly',
-      priority: 0.5,
-    }],
+    // [require.resolve('@docusaurus/plugin-sitemap'), {
+    //   id: 'sitemap2',
+    //   cacheTime: 600 * 1000, // 600 sec - cache purge period
+    //   changefreq: 'weekly',
+    //   priority: 0.5,
+    // }],
     // require.resolve('@babel/plugin-proposal-class-properties'),
     [
       require.resolve('@docusaurus/plugin-ideal-image'),
       {
-        quality: 70,
+        quality: 90,
         max: 1030, // max resized image's size.
         min: 640, // min resized image's size. if original is lower, use that size.
-        steps: 2, // the max number of images generated between min and max (inclusive)
+        steps: 4, // the max number of images generated between min and max (inclusive)
       },
     ],
-    // [require.resolve('@docusaurus/plugin-client-redirects'), {
-    //   fromExtensions: ['html'],
-    //   redirects: [
-    //     {from: ['/',], to: '/wisdom/introduction',},
-    //   ],
-    //   createRedirects: function (path) {
-    //     // redirect to /docs from /docs/introduction,
-    //     // as introduction has been made the home doc
-    //     // if (allDocHomesPaths.includes(path)) {
-    //     //   return [`${path}/introduction`];
-    //     // }
-    //   },
-    // }],
+    [require.resolve('@docusaurus/plugin-client-redirects'), {
+      fromExtensions: ['html'],
+      redirects: [
+        {from: ['/installation'], to: '/tracking/quick-installation'},
+      ],
+    }],
     // [ require.resolve('@docusaurus/plugin-content-docs'), {
     //   path: 'docs',
     //   editUrl: 'https://github.com/wisdom/docs/edit/master/website/',
@@ -80,11 +74,12 @@ module.exports = {
     // }],
 
     [ require.resolve('@docusaurus/plugin-content-blog'), {
+      id: 'snippets',
       path: './snippets',
       routeBasePath: '/blog/snippets',
       showReadingTime: true,
       // include: ['*.md', '*.mdx'],
-      BlogPostItem: '@theme/BlogPostItem',
+      // BlogPostItem: '@theme/BlogPostItem', ------------------
       blogListComponent: '@theme/BlogListPage',
       blogPostComponent: '@theme/BlogPostPage',
       blogTagsListComponent: '@theme/BlogTagsListPage',
@@ -100,11 +95,12 @@ module.exports = {
     }],
 
     [ require.resolve('@docusaurus/plugin-content-blog'), {
+      id: 'announcements',
       path: './announcements',
       routeBasePath: '/blog/announcements',
       showReadingTime: true,
       // include: ['*.md', '*.mdx'],
-      BlogPostItem: '@theme-original/BlogPostItem',
+      // BlogPostItem: '@theme-original/BlogPostItem', ----------------------
       blogListComponent: '@theme-original/BlogListPage',
       blogPostComponent: '@theme-original/BlogPostPage',
       blogTagsListComponent: '@theme/BlogTagsListPage',
@@ -119,6 +115,25 @@ module.exports = {
       },
     }],
 
+    // [   --- 404 pages don't work when deployed to prod
+    //   '@docusaurus/plugin-pwa',
+    //   {
+    //     debug: false,
+    //     offlineModeActivationStrategies: ['appInstalled', 'queryString', 'always'],
+    //     pwaHead: [
+    //       {
+    //         tagName: 'link',
+    //         rel: 'icon',
+    //         href: '/img/logo.svg',
+    //       },
+    //       // {
+    //       //   tagName: 'link',
+    //       //   rel: 'manifest',
+    //       //   href: '/manifest.json', // your PWA manifest
+    //       // },
+    //     ],
+    //   },
+    // ],
   ],
   themeConfig: {
     announcementBar: {
@@ -147,7 +162,7 @@ module.exports = {
         src: 'img/logo.svg',
         srcDark: 'img/logo.dark.svg',
       },
-      links: [
+      items: [
         // {to: 'https://app.getwisdom.io', label: 'App', position: 'left'},
         // {
         //   to: '/docs',
@@ -236,7 +251,7 @@ module.exports = {
           customCss: require.resolve('./src/css/custom.css'),
         },
         sitemap: {
-          cacheTime: 60* 10 * 1000,
+          cacheTime: 60*10*1000,
           changefreq: 'weekly',
           priority: 0.5,
         },

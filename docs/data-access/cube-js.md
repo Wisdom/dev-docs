@@ -9,6 +9,8 @@ import TabItem from '@theme/TabItem';
 import Code from '../../src/common/code/'
 
 
+## Intro
+
 <Image img={require('./cubejs.png')} className='noShadow'/>
 
 [Visit Cubejs](https://cube.dev/)
@@ -17,20 +19,21 @@ import Code from '../../src/common/code/'
 Cubejs is an open source analytics framework that greatly simplifies running analytics queries. Cubejs comprises of a frontend library and backend analytical server infrastructure that Wisdom fully manages for you. Like many modern analytics frameworks, Cubejs differentiates between data dimensions (time, browser) and data measures (user count, unique page views).
 
 
-### Cubes
+## Cubes
 
-atomic.person
-atomic.session
-atomic.events
-atomic.mail_inbox
+| Cube Name  | Cube Description   |
+|---|---|
+| atomic.person |  |
+| atomic.session |  |
+| atomic.events |  |
+| atomic.mail_inbox |  |
+| |  |
+| virtual.pageviews |  |
+| |  |
+| rollup |  |
 
-virtual.pageviews
 
-
-rollup
-
-
-### Example Code
+## Example Code
 
 
 <Tabs

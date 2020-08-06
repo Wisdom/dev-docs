@@ -17,6 +17,14 @@ public: True
 ---
 
 
+:::info Work In Progress
+<br/>
+Coming soon mid August 2020
+:::
+
+
+
+
 ### PostgreSQL Schemas For SaaS Integrations
 Wisdom's core value is managing user engagement analytics- but analysis without full business context isn't sufficient for making business decisions. This is why Wisdom supports pulling in various data sources, including revenue, NPS feedback, CRM, marketing, live chat, and support ticket data. Wisdom's upcoming open report marketplace will allow out-of-the-box reporting, such as revenue-per-click and rage-clicks, and differentiate between features that are unused vs undiscovered.
 

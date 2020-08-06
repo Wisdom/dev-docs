@@ -59,6 +59,7 @@ a.menu__link.menu__link--sublist {
 }
 .menu>ul>li>a.menu__link.menu__link--sublist {
   font-weight: 700;
+  padding-right: 0.6em;
 }
 html[data-theme='dark'] .menu>ul>li>a.menu__link.menu__link--sublist {
   color: #e6e6e6;
@@ -95,12 +96,23 @@ html[data-theme='dark'] .menu__link:not(.menu__link--active) {
 }
 
 /* Too Deep with many long SQL query reports */
-a.menu__link.menu__link.menu__link[href*="sql-reports/"],
-  a.menu__link.menu__link.menu__link[href*="sql-tables/"] {
+a.menu__link.menu__link.menu__link[href*="/sql-reports/"],
+a.menu__link.menu__link.menu__link[href*="/sql-tables/"] {
   font-size: 0.8em;
   line-height: 0.9;
   padding: 0.3em 0.2em;
   margin-left: 0.5em;
+}
+
+
+/* FAQ paths need full question titles, so we make them smaller. */
+a.menu__link.menu__link.menu__link[href^="/faq/"] {
+  line-height: 1.1;
+  font-size: 0.75rem;
+  margin-top: -0.125rem;
+  margin-left: 0em;
+  margin-right: 0em;
+  padding: .3em .3em;
 }
 
 
@@ -363,6 +375,28 @@ html[data-theme='dark'] main { background: hsla(0, 0%, 3%, 1);}
 
 
 
+.DocSearch-Button.DocSearch-Button {
+  margin-right: 16px;
+  margin-top: 4px;
+  margin-bottom: 1rem;
+}
+.DocSearch-Container {
+  z-index: 999;
+}
+.DocSearch-Button-Placeholder {
+  flex-grow: 1;
+  text-align: left;
+  margin-top: 2px;
+}
+.DocSearch-Button-Key.DocSearch-Button-Key {
+  box-shadow: rgb(205, 205, 230) 0px -1px 0px 0px inset, rgb(255, 255, 255) 0px 0px 0.75px 0.5px inset, rgba(30, 35, 90, 0.4) 0px 0px 0px 0.25px;
+}
+.DocSearch-Search-Icon {
+  stroke-width: 1.5px;
+  width: 17px;
+  margin-left: 3px;
+}
+
 
 /* // A few miscellaneous styles */
 
@@ -535,7 +569,15 @@ ol {
 
 
 
-
+article .inline img,
+article .inline svg,
+article .inline {
+  width: auto !important;
+  margin: 0;
+  box-shadow: none;
+  display: inline;
+  vertical-align: middle;
+}
 article img {
   border: 1px solid #d9d9d9;
   box-shadow: 0 0 6px 0 #d9d9d9;
@@ -573,3 +615,35 @@ article .noShadow > img {
 }
 
 
+
+
+/* No JavaScript Warning */
+@media (min-width: 996px) {
+  body.no-js .menu::after {
+    content: 'Please enable JavaScript.';
+    padding: 1rem;
+    background: #ff6522;
+    color: white;
+    text-align: center;
+    position: relative;
+    top: 100px;
+    animation-name: slideinNoJs;
+    animation-duration: 300ms;
+    animation-delay: 1000ms;
+    animation-direction: normal;
+    animation-fill-mode: forwards;
+    animation-timing-function: cubic-bezier(0.96, 0, 0.72, 1.28);
+    animation-iteration-count: 1;
+  }
+  
+  @keyframes slideinNoJs {
+    from {top: 100px;}
+    to   {top: 0px;}
+  }
+}
+
+
+/* Sidebar is JS created. */
+body.no-js div[class^="tableOfContents_tVyB"] {
+  display: none;
+}

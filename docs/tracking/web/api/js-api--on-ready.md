@@ -14,7 +14,7 @@ tags:
 author: ''
 public: True
 ---
-import Code from '../../../src/common/code/'
+import Code from '../../../../src/common/code/'
 
 
 # onReady

@@ -7,8 +7,8 @@ sidebar_label: '@wisdom/developing/all-together'
 ## Example Usage
 
 ```sql
-SELECT * FROM community.report(NULL::"@wisdom/developing/all-together", 
-	_project_id = ?
+SELECT * FROM community.report(NULL::community_types."@wisdom/developing/all-together", 
+	_project_id => ?
 );
 ```
 
