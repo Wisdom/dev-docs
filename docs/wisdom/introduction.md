@@ -21,7 +21,7 @@ Wisdom is your modern web analytics data lake, home to an exciting community of 
 
 Just add Wisdom's instrumenting JS code to your web application, and optionally grant Wisdom (read only) API keys to your favorite SaaS tools. Wisdom will create your own data warehouse custom built for your B2B SaaS web startups.
 
-Wisdom has a simple scalable pricing model of _$30 per TB of storage per month_ and _$199 per million page views_. As a pricing benchmark, our median customer pays $230/month.
+Wisdom has a simple scalable pricing model of _$47 per TB of storage per month_ and _$199 per group of million page views_. As a pricing benchmark, our median customer pays $280/month.
 
 Getting Setup is simple:
 1. Add Wisdom tracking code

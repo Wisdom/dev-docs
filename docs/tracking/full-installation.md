@@ -50,7 +50,7 @@ You may also find it helpful to review the [Complete Configuration Reference](/t
 
 Wisdom supports logging Redux actions.
 
-`wisdomAdmin('reduxAction', action, prevState, nextState, {duration});`
+`wisdom('reduxAction', action, prevState, nextState, {duration});`
 
 
 Add Wisdom's logger middleware to capture relevant context. Besure to keep Wisdom's logger as the very last middleware.
@@ -65,8 +65,8 @@ const wisdomReduxLogger = store => next => action => {
   const nextState = store.getState();\n
   const duration = end - start;
   try {
-    if (window.wisdomAdmin) {
-      window.wisdomAdmin('reduxAction', action, prevState, nextState, {duration});
+    if (window.wisdom) {
+      window.wisdom('reduxAction', action, prevState, nextState, {duration});
     }
   } catch (ex) {
     console.error("[WISDOM Redux Logger]:", ex);
@@ -92,7 +92,7 @@ const middleware = [applyMiddleware(
 
 <Code language='javascript' title='Sanitizer Functions' code={`
 \n
-wisdomAdmin('init', __PROJECT_ID__, {
+wisdom('init', __PROJECT_ID__, {
   buildHash, 'v2.7.3__70789fb021036ecc',
 });
 `}/>
@@ -117,7 +117,7 @@ const sanitizers = {
     reduxAction: [funcs, funcs],       // Function Signature: (actionObj)
 };
 \n
-wisdomAdmin('init', 7, {
+wisdom('init', 7, {
   sanitizers,
 });
 `}/>

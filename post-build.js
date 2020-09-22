@@ -1,7 +1,7 @@
 const fs = require('fs');
 let html = fs.readFileSync(__dirname+'/build/index.html').toString();
 
-const banner = `<!--
+const banner = `<head>\n<!--
 
     __          ___         _
     \\ \\        / (_)       | |

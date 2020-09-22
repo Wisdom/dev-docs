@@ -35,7 +35,7 @@ const sanitizers = {
     reduxAction: [funcs, funcs],       // Function Signature: (actionObj)
 };
 \n
-wisdomAdmin('init', 7, {
+wisdom('init', __PROJECT_ID_HERE__, {
   sanitizers,
 });
 `}/>
@@ -117,7 +117,7 @@ const sanitizers = {
     }
   ],
 };\n
-wisdomAdmin('init', 7, {
+wisdom('init', __PROJECT_ID_HERE__, {
  sanitizers,
 });
 `}/>
@@ -141,7 +141,7 @@ wisdomAdmin('init', 7, {
 Imagine for a moment you have a banking app. Here is how you can change all numbers of the webpage text (not form inputs) to bullet points.
 
 <Code language='javascript' title='Example Sanitizers' code={`
-wisdomAdmin('init', 7, {
+wisdom('init', __PROJECT_ID_HERE__, {
   sanitizers: {
     replaceText: [
         (str, el, isCensored) => {
@@ -160,7 +160,7 @@ wisdomAdmin('init', 7, {
 
 
 <Code language='javascript' title='Example Sanitizers' code={`
-wisdomAdmin('init', 7, {
+wisdom('init', __PROJECT_ID_HERE__, {
   sanitizers: {
     replaceValue: [
         (str, el, isCensored) => {
@@ -177,7 +177,7 @@ wisdomAdmin('init', 7, {
 Which elements to sanitize- triggers various scrubbers- like element.value and text.
 
 <Code language='javascript' title='Example Sanitizers' code={`
-wisdomAdmin('init', 7, {
+wisdom('init', __PROJECT_ID_HERE__, {
   sanitizers: {
     censorElement: [
         // Censor all header tags.
@@ -192,7 +192,7 @@ wisdomAdmin('init', 7, {
 Local Storage, Session Storage, Cookies.
 
 <Code language='javascript' title='Example Sanitizers' code={`
-wisdomAdmin('init', 7, {
+wisdom('init', __PROJECT_ID_HERE__, {
   sanitizers: {
     censorStorageVal: [
         ([key, val]) => {
@@ -211,7 +211,7 @@ wisdomAdmin('init', 7, {
 
 
 <Code language='javascript' title='Example Sanitizers' code={`
-wisdomAdmin('init', 7, {
+wisdom('init', __PROJECT_ID_HERE__, {
   sanitizers: {
     url: [
         (url) => {
@@ -235,7 +235,7 @@ wisdomAdmin('init', 7, {
 
 <Code language='javascript' title='Example Sanitizers' code={`
 import _ from 'lodash'; // example dependency\n
-wisdomAdmin('init', 7, {
+wisdom('init', __PROJECT_ID_HERE__, {
   sanitizers: {
     network: [
         ({req, res}) => {
@@ -256,7 +256,7 @@ wisdomAdmin('init', 7, {
 
 <Code language='javascript' title='Example Sanitizers' code={`
 import _ from 'lodash'; // example dependency\n
-wisdomAdmin('init', 7, {
+wisdom('init', __PROJECT_ID_HERE__, {
   sanitizers: {
     reduxState: [
         (state) => {
@@ -274,7 +274,7 @@ wisdomAdmin('init', 7, {
 
 <Code language='javascript' title='Example Sanitizers' code={`
 import _ from 'lodash'; // example dependency\n
-wisdomAdmin('init', 7, {
+wisdom('init', __PROJECT_ID_HERE__, {
   sanitizers: {
     reduxAction: [
         (action) => {
