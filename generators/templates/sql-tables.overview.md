@@ -15,24 +15,24 @@ Wisdom by default does NOT provide you with usernames and passwords coorespondin
 
 ### Full Org Access Connection Details + Credentials:
 
-| Property       | Value                                  |
-|----------------|----------------------------------------|
-| host           | ${orgId}.sql.wisdom-dashboards.com     |
-| port           | 5432                                   |
-| database       | org_${orgId}                           |
-| username       |                                        |
-| password       | (Ask)                                  |
+| Property       | Value                                                                                   |
+|----------------|-----------------------------------------------------------------------------------------|
+| host           | ${orgId}.sql.wisdom-dashboards.com                                                      |
+| port           | 5432                                                                                    |
+| database       | wisdom                                                                                  |
+| username       | org_${orgId}                                                                            |
+| password       | [See Org PostgreSQL Configs](https://app.getwisdom.io/org/~/configs/postgresql)         |
 
 
 ### Project Level Data Access Connection Details + Credentials:
 
-| Property       | Value                                  |
-|----------------|----------------------------------------|
-| host           | ${orgId}.sql.wisdom-dashboards.com     |
-| port           | 5432                                   |
-| database       | project_${project_Id}                  |
-| username       |                                        |
-| password       | (Ask)                                  |
+| Property       | Value                                                                                    |
+|----------------|------------------------------------------------------------------------------------------|
+| host           | ${orgId}.sql.wisdom-dashboards.com                                                       |
+| port           | 5432                                                                                     |
+| database       | master                                                                                   |
+| username       | project_${project_Id}                                                                    |
+| password       | [See Project Data Access](https://app.getwisdom.io/org/~/project/~/configs/data-access)  |
 
 
 ### Various Groups:
@@ -49,14 +49,14 @@ Wisdom by default does NOT provide you with usernames and passwords coorespondin
 ```
 psql \
    -h ${ORG_ID}.sql.wisdom-dashboards.com
-   -d ${DATABASE} \
+   -d wisdom \
    -U ${USER_NAME} \
    -p 5432
 ```
 
 # Context
 
-Wisdom collects terrabytes of data. We've found that frequently we cannot build reports fast enough- there is just too much information to explore. We wanted to expose functionality that our own team has been able to use for quite some time- that is direct SQL access. For paid enterprise accounts, you'll be able to batch run SQL queries for your own data across 17 different tables.
+Wisdom collects terrabytes of data. We've found that frequently we cannot build reports fast enough- there is just too much information to explore. We wanted to expose functionality that our own team has been able to use for quite some time- that is direct SQL access. For paid accounts, you'll be able to batch run SQL queries for your own data across 17 different tables.
 
 
 <Image img={require('../sql.png')}/>
@@ -72,13 +72,13 @@ Wisdom collects terrabytes of data. We've found that frequently we cannot build 
 Default database seach_path:
 ```sql
 show search_path;
-> atomic, public, rollup, team, enrichment, trained, normalized_vendor, admin, beta, alpha
+> atomic, public, rollup, team, enrichment, trained, normalized_vendor, admin, beta
 ```
 
 
 
 ### Schemas
-Note that there is a proposal to make use of a `sandbox` schema for customer write access. To prevent future conflicts, this schema will not be added to the default search_path;
+Note that there is a proposal to make use of a `sandbox` schema for customer write access. To prevent future conflicts, this schema will not be added to the default search_path.
 
 Show Schemas:
 ```sql
@@ -99,7 +99,7 @@ select nspname from pg_catalog.pg_namespace;
 
 
 ### Data Syncing SaaS Vendors
-Note: Requires setup of vendor secret API keys (auth tokens). Since this functionality is relatively new, you should reach out to your assigned Wisdom account manager to discuss getting started with normalized vendor data.
+Note: Requires setup of vendor secret API keys (auth tokens). Since this functionality is relatively new, you should reach out to your assigned Wisdom account manager to discuss getting started with normalized vendor data. This is a proposal that should be implemented mid November that ris currently bottlenecked behind a feature of the `Meltano` project.
 
 | Category | Vendor Name         | SQL Schema                 
 |----------|---------------------|----------------------------

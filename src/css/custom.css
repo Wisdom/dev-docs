@@ -614,6 +614,15 @@ article .noShadow > img {
   box-shadow: none;
 }
 
+article a>img.inlineMini {
+  margin: 0;
+  display: inline;
+  vertical-align: middle;
+  height: 2rem;
+  width: auto;
+  border: none;
+}
+
 
 
 

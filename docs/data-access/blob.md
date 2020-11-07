@@ -38,6 +38,7 @@ All files are [Brotli](https://en.wikipedia.org/wiki/Brotli) encoded and compres
 - system_analysis/.../{projectId}_${name}.{file_type_usually_json}  -- NOTE: no history
 ```
 
+
 #### Cantidate Folder Schema Additions:
 The Wisdom dev team is considering the following S3 schema updates to be added near the end of 2020.
 ```
@@ -49,7 +50,33 @@ The Wisdom dev team is considering the following S3 schema updates to be added n
 
 ### Example Code
 
-Accessing S3 object data isn't particularily complicated. Try out the blow code to get certain blob data.
+Accessing S3 object data is easy. Try out the below code to get certain blob data.
+
+<Code type='js' title='Reading S3 Objects: Getting a Session Record' code={`
+const AWS = require('aws-sdk');
+\n
+const s3 = AWS.S3({
+    apiVersion: '2006-03-01',
+    region: 'eu-west-1',
+    accessKeyId: 'XXXXXXXXXXXXXXX', \t// Add your credentials here
+    secretAccessKey: 'XXXXXXXXXXXXXXX', // Add your credentials here
+});\n\n
+// For AWS API details, see https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#getObject-property
+(async (session) => {
+    const calendarStr = new Date(session.sessionStart) // ISO date: "2020/07/28"
+    \t.toISOString()
+    \t.slice(0, 10)
+    \t.replace(/-/g, '/');\n
+    const sessionRecoring = await s3.getObject({
+        Bucket: 'wisdom-project-1', // Replace with your assigned bucket name,
+        Key: \`session_recordings/\${calendarStr}/\${session.projectId}_\${session.sessionId}.json\`
+    });
+    console.log(JSON.stringify(sessionRecoring, null, 2));
+})();
+`}/>
+
+
+To list out objects stored within your S3 Bucket, try the following code:
 
 <Code type='js' title='Reading S3 Objects: Getting a Session Record' code={`
 const AWS = require('aws-sdk');
@@ -65,10 +92,25 @@ const s3 = AWS.S3({
     \t.toISOString()
     \t.slice(0, 10)
     \t.replace(/-/g, '/');\n
-    const sessionRecoring = await s3.getObject({
+    // Lists up to 1,000 objects at a time.
+    // For AWS API details see https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html#listObjectsV2-property
+    const sessionRecoring = await s3.listObjectsV2({
         Bucket: 'wisdom-project-1', // Replace with your assigned bucket name,
-        Key: \`session_recordings/\${calendarStr}/\${session.projectId}_\${session.sessionId}.json\`
+        MaxKeys: 10, // Limit to a reasonable number for demo purposes.
     });
     console.log(JSON.stringify(sessionRecoring, null, 2));
 })();
 `}/>
+
+
+<br/>
+
+Other methods you may try
+- s3.getObjectRetention
+- s3.getBucketLifecycle
+- s3.getBucketReplication
+- s3.putBucketLifecycle
+- s3.putObjectTagging
+- s3.putObjectRetention
+- s3.deleteObject
+- s3.deleteObjects

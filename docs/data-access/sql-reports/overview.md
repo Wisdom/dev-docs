@@ -49,10 +49,6 @@ A few example community queries to help you get started developing SQL reports.
 
 | Step  | Report Query Path                                  | Title                     | Requires Params |
 |-------|----------------------------------------------------|---------------------------|-----------------|
-| 1     | [@wisdom/developing/all-together](https://github.com/Wisdom/community-sql/blob/master/queries/@wisdom/developing/all-together) | HelloworldQuery           | ✓               |
-| 2     | [@wisdom/developing/building-on-other-queries](https://github.com/Wisdom/community-sql/blob/master/queries/@wisdom/developing/building-on-other-queries) | HelloworldQuery           | ✘               |
-| 3     | [@wisdom/developing/hello-world](https://github.com/Wisdom/community-sql/blob/master/queries/@wisdom/developing/hello-world) | HelloWorldQuery           | ✘               |
-| 4     | [@wisdom/developing/passing-parameters](https://github.com/Wisdom/community-sql/blob/master/queries/@wisdom/developing/passing-parameters) | HelloworldQuery           | ✓               |
 
 
 1. `SELECT * FROM community.report(NULL::community_types."@wisdom/developing/hello-world");`

@@ -49,15 +49,15 @@ event_ecommerceCardAbandon       | bigint                   |          |        
 `"uniqueIdentityIds"`                | bigint                   |          |                   | plain    | 
 `"uniqueVisitedPages"`               | bigint                   |          |                   | plain    | 
 `"uniqueIpAddresses"`                | bigint                   |          |                   | plain    | 
-`"uniqueHllIpAddresses"`             | hll(13,6,-1,1)           |          |                   | external | 
+`"uniqueHllIpAddresses"`             | hll(13,5,-1,1)           |          |                   | external | 
 `"uniqueHllErrors"`                  | hll(11,5,-1,1)           |          |                   | external | 
-`"uniqueHllIdentityIds"`             | hll(13,6,-1,1)           |          |                   | external | 
+`"uniqueHllIdentityIds"`             | hll(13,5,-1,1)           |          |                   | external | 
 `"uniqueHllVisitedPages"`            | hll(11,5,-1,1)           |          |                   | external | 
-lostUsers7DaysHll                | hll(12,5,-1,1)           |          |                   | external | 
-lostUsers14DaysHll               | hll(12,5,-1,1)           |          |                   | external | 
-lostUsers30DaysHll               | hll(12,5,-1,1)           |          |                   | external | 
-lostUsers30Days                  | bigint                   |          |                   | plain    | 
-lostUsers30DaysCumulative        | bigint                   |          |                   | plain    | 
+`"lostUsers7DaysHll"`                | hll(12,5,-1,1)           |          |                   | external | 
+`"lostUsers14DaysHll"`               | hll(12,5,-1,1)           |          |                   | external | 
+`"lostUsers30DaysHll"`               | hll(12,5,-1,1)           |          |                   | external | 
+`"lostUsers30Days"`                  | bigint                   |          |                   | plain    | 
+`"lostUsers30DaysCumulative"`        | bigint                   |          |                   | plain    | 
 ### Indexes:
 ```
 "RollupDailyProjectMetrics_pkey" PRIMARY KEY, btree ("projectId", date) CLUSTER

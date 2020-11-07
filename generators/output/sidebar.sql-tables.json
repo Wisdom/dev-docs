@@ -1,4 +1,6 @@
 [
+  "admin.knex_multi_tenant_migration",
+  "admin.knex_multi_tenant_migration_lock",
   "atomic.company",
   "atomic.employee",
   "atomic.event",
@@ -11,10 +13,5 @@
   "rollup.rollup_daily_project_metrics",
   "rollup.rollup_weekly_project_metrics",
   "rollup.rollup_weekly_user_page_activity",
-  "team.gallery_session_view",
-  "team.person_note",
-  "team.social_share",
-  "team.social_share_comment",
-  "team.social_share_like",
-  "team.user_sync"
+  "team.gallery_session_view"
 ]

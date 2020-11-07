@@ -10,7 +10,7 @@ module.exports = {
       // 'wisdom/business-engagement'
     ],
 
-    'Tracking Setup': [
+    'Setup': [
       'tracking/quick-installation',
       'tracking/full-installation',
       {
@@ -37,12 +37,19 @@ module.exports = {
           'tracking/server/overview',
           'tracking/server/inbox',
           'tracking/server/company',
-          'tracking/server/saas',
+        ],
+      },
+      'tracking/saas',
+      {
+        type: 'category',
+        label: 'App Integrations',
+        items: [
+          'tracking/integrations/slack',
         ],
       },
     ],
 
-    'Accessing Your Data:new': [
+    'Data Access + Management:new': [
       'data-access/overview',
       'data-access/management',
       'data-access/blob',
@@ -98,7 +105,7 @@ module.exports = {
     ],
 
 
-    'Community Extensions': [
+    'Open Community Extensions': [
       {
         type: 'category',
         label: 'SQL Reports:new',
@@ -173,7 +180,9 @@ module.exports = {
 
 
     'Continuous Learning': [
-      'community',
+      'continous-learning/roadmap',
+      'continous-learning/community',
+      'continous-learning/snippets',
       // {
       //   type: 'category',
       //   label: 'Tutorials',
@@ -195,8 +204,6 @@ module.exports = {
       //     'empty',
       //   ],
       // },
-      'snippets',
-      
     ],
 
     'FAQ': [

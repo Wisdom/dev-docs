@@ -1,5 +1,5 @@
 ---
-title: SaaS Data Sync
+title: Vendor Vendor Data Sync (SQL)
 sidebar_label: SaaS Data Sync
 preview: ''
 
@@ -19,7 +19,7 @@ public: True
 
 :::info Work In Progress
 <br/>
-Coming soon mid August 2020
+Coming soon December 2020
 :::
 
 

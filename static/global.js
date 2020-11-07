@@ -20,6 +20,12 @@
  
  document.addEventListener('click', function (evt) {
    if (evt.target.tagName === 'IMG') {
+     if (
+       evt.target.parentNode.tagName==='A' ||
+      !evt.target.classList.contains('no-expand')
+     ) {
+      return;
+     }
      const article = document.querySelector('article .markdown');
  
      if (article && article.contains(evt.target)) {
