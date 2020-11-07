@@ -24,7 +24,9 @@ Wisdom enables sharing recorded sessions to your Wisdom team feed as short MP4 v
 
 To install Slack, create a Wisdom account and head over to your [organization configuration page](https://app.getwisdom.io/org/~/configs/info) where you will find the Slack installation button <a href='https://app.getwisdom.io/org/~/configs/info' target='blank' rel='noopener nofollow noreferrer'><img src='https://platform.slack-edge.com/img/add_to_slack@2x.png' className='inlineMini'/></a>
 
-**Note:** This integration needs to be set up only once per organization, as it becomes available for all projects.
+**Note 1:** This integration needs to be set up only once per organization, as it becomes available for all projects.
+
+**Note 2:** The Wisdom Slack app installation involves granting Wisdom certain data access abilities (eg. `users:read.email`). Wisdom uses this data to manage Wisdom and Slack users for team collaboration. Wisdom uses the Slack API to request data on the fly- Wisdom does not store Slack data. For the purposes of data removal requests, uninstalling the app will prevent Wisdom from accessing your data.
 
 
 ### Installation Steps
