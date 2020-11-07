@@ -29,7 +29,7 @@ To install Slack, create a Wisdom account and head over to your [organization co
 
 ### Installation Steps
 
-1. **In Wisdom, navigate to Settings > Organization Settings > Configurations.** <Image img={require('./slack-config.png')} className='noShadow'/>
+1. **In Wisdom, navigate to Settings > Organization Settings > Configurations.** <Image img={require('./slack-config.png')} className='noShadow'/><br/>
 2. **Grant default permissions to Wisdom bot.** <Image img={require('./slack-auth.png')} className='noShadow'/><br/>
 3. **Your integration details page will refresh and show the Slack workspace you just added.** <Image img={require('./slack-success.png')} className='noShadow'/><br/>
 4. **Assign recorded issues to teammates having matching emails in Slack.** <Image img={require('./slack-assign.png')} className='noShadow'/><br/>
