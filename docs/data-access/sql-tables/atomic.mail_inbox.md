@@ -27,8 +27,8 @@ Column       |           Type           | Nullable |      Default      | Storage
 ### Indexes:
 ```
 "PersonInbox_pkey" PRIMARY KEY, btree ("projectId", "toEmails", "insertedAt")
-"personinbox_mailid_unique" UNIQUE CONSTRAINT, btree ("mailId")
 "PersonInbox_toEmails" gin ("toEmails")
+"personinbox_mailid_unique" UNIQUE CONSTRAINT, btree ("mailId")
 ```
 ### Access method:
 ```

@@ -101,6 +101,7 @@ select nspname from pg_catalog.pg_namespace;
 | beta                           |
 | app                            |
 | sandbox                        |
+| hint_plan                      |
 
 
 
@@ -109,17 +110,19 @@ select nspname from pg_catalog.pg_namespace;
 
 | Tables with Schema             |
 |--------------------------------|
-| [admin.knex_multi_tenant_migration](./admin.knex_multi_tenant_migration.md) |
-| [admin.knex_multi_tenant_migration_lock](./admin.knex_multi_tenant_migration_lock.md) |
 | [atomic.company](./atomic.company.md) |
 | [atomic.employee](./atomic.employee.md) |
 | [atomic.event](./atomic.event.md) |
 | [atomic.mail_inbox](./atomic.mail_inbox.md) |
 | [atomic.person](./atomic.person.md) |
 | [atomic.session](./atomic.session.md) |
+| [enrichment.company_basic](./enrichment.company_basic.md) |
+| [enrichment.country](./enrichment.country.md) |
 | [enrichment.domain_rank](./enrichment.domain_rank.md) |
+| [enrichment.holiday](./enrichment.holiday.md) |
 | [enrichment.person_enrichment](./enrichment.person_enrichment.md) |
 | [enrichment.spam_email_service](./enrichment.spam_email_service.md) |
+| [hint_plan.hints](./hint_plan.hints.md) |
 | [rollup.rollup_daily_project_metrics](./rollup.rollup_daily_project_metrics.md) |
 | [rollup.rollup_weekly_project_metrics](./rollup.rollup_weekly_project_metrics.md) |
 | [rollup.rollup_weekly_user_page_activity](./rollup.rollup_weekly_user_page_activity.md) |

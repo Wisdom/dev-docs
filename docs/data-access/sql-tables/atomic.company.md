@@ -33,8 +33,8 @@ Column         |           Type           | Nullable | Default | Storage  | Desc
 ### Indexes:
 ```
 "Company_pkey" PRIMARY KEY, btree ("companyId")
-"Unique__Company__projectId_companyId" UNIQUE CONSTRAINT, btree ("projectId", "companyId")
 "Company_tags" gin (tags)
+"Unique__Company__projectId_companyId" UNIQUE CONSTRAINT, btree ("projectId", "companyId")
 "company_projectid_companyid_index" btree ("projectId", "companyId")
 "company_projectid_createdat_index" btree ("projectId", "createdAt")
 "company_projectid_domain_index" btree ("projectId", domain)

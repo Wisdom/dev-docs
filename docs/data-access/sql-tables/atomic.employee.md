@@ -24,10 +24,10 @@ Column     |           Type           | Nullable | Default | Storage  | Descript
 `"softDeletedAt"` | timestamp with time zone |          |         | plain    | 
 ### Indexes:
 ```
-"Unique__Employee__projectId_companyId_identityId" UNIQUE CONSTRAINT, btree ("projectId", "companyId", "identityId")
 "Employee__directReports_Employee" gin ("directReports") WHERE "directReports" IS NOT NULL
 "Employee__reportsTo_Employee" gin ("reportsTo") WHERE "reportsTo" IS NOT NULL
 "Employee__tags" gin (tags) WHERE tags IS NOT NULL
+"Unique__Employee__projectId_companyId_identityId" UNIQUE CONSTRAINT, btree ("projectId", "companyId", "identityId")
 "employee_projectid_companyid_identityid_index" btree ("projectId", "companyId", "identityId")
 "employee_projectid_identityid_companyid_index" btree ("projectId", "identityId", "companyId")
 ```

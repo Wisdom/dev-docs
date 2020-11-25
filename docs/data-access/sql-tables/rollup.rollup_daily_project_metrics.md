@@ -61,9 +61,9 @@ event_ecommerceCardAbandon       | bigint                   |          |        
 ### Indexes:
 ```
 "RollupDailyProjectMetrics_pkey" PRIMARY KEY, btree ("projectId", date) CLUSTER
-"rollupdailyprojectmetrics_projectid_date_unique" UNIQUE CONSTRAINT, btree ("projectId", date)
 "rollupdailyprojectmetrics_projectid_date_pageviews_index" btree ("projectId", date, pageviews)
 "rollupdailyprojectmetrics_projectid_date_sessions_index" btree ("projectId", date, sessions)
+"rollupdailyprojectmetrics_projectid_date_unique" UNIQUE CONSTRAINT, btree ("projectId", date)
 ```
 ### Access method:
 ```
