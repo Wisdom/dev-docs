@@ -19,7 +19,7 @@ Column          |   Type   | Nullable | Default | Storage  | Description
 `"crunchbaseUrl"`           | text     |          |         | extended | 
 ### Indexes:
 ```
-"company_basic__idx__year_employees" btree (domain) INCLUDE ("yearFounded", "sizeRange", "currentEmployeeEstimate", "totalEmployeeEstimate")
+"company_basic__idx__year_employees" UNIQUE, btree (domain) INCLUDE ("yearFounded", "sizeRange", "currentEmployeeEstimate", "totalEmployeeEstimate")
 ```
 ### Access method:
 ```

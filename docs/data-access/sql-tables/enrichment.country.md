@@ -8,7 +8,7 @@ Column |         Type          | Nullable | Default | Storage  | Description
 `"name"`   | character varying(64) |          |         | extended | 
 ### Indexes:
 ```
-"country__code_name" btree (code, name)
+"country__code_name" UNIQUE, btree (code, name)
 ```
 ### Access method:
 ```

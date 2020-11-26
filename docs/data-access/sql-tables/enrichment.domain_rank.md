@@ -10,7 +10,7 @@ Column  |          Type          | Nullable | Default | Storage  | Description
 ### Indexes:
 ```
 "domainrank__domain_rank__hash_idx" hash (domain)
-"domainrank_rank_domain_index" btree (rank, domain)
+"domainrank_rank_domain_index" UNIQUE, btree (rank, domain)
 ```
 ### Access method:
 ```
